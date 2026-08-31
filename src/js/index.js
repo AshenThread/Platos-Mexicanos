@@ -6,7 +6,11 @@ import {
 } from './data.js';
 
 import {
-  construirTacoAsync
+  construirTacoAsync, 
+  filtrarIngredientesPorPicante,
+  determinarEstado,
+  ensamblarTaco,
+  calcularPicante
 } from './generator.js';
 
 async function main() {
@@ -20,6 +24,10 @@ async function main() {
 
   console.log("Taco generado:");
   console.log(taco);
+
+  
 }
 
+
 main();
+
