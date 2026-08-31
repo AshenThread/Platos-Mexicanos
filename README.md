@@ -2,97 +2,109 @@
 
 ## Intención inicial
 
-Este proyecto busca crear una pequeña herramienta interactiva llamada "Máquina de tacos de intención". La idea es que el programa reciba una serie de ingredientes, salsas, proteínas y niveles de intensidad, y genere combinaciones creativas de tacos con una valoración de picante, equilibrio y personalidad del platillo.
+Este proyecto crea una pequeña herramienta llamada "Máquina de tacos con intención". Su función es combinar proteínas, salsas, toppings y tortillas para generar un taco con un nivel de picante acumulado y una clasificación final según ese valor.
 
-La intención central es transformar datos simples en decisiones, combinaciones y diagnósticos no bloqueantes, usando JavaScript avanzado y después una versión tipada en TypeScript. El programa debe ayudar a entender cómo un desarrollador actúa como arquitecto de intención: define reglas, valida entradas y decide cómo se interpreta la información.
+La intención del programa es mostrar cómo una idea creativa puede convertirse en una lógica estructurada: se definen datos, se calculan resultados y se interpreta la salida con reglas claras. La lógica principal usa JavaScript avanzado para representar colecciones, funciones reutilizables y un flujo asíncrono simulado.
 
 ## Tema creativo
 
-"Generador de tacos con intención y nivel de picante"
+"Generador de tacos según intensidad y personalidad"
 
-El usuario podrá seleccionar o probar combinaciones de:
+El sistema toma datos como:
 
-- proteínas
-- salsas
-- ingredientes base
-- intensidad deseada
-- estilo de taco
+- proteína
+- salsa
+- topping
+- tortilla
 
-La aplicación devolverá una mezcla sugerida con un resultado narrativo, un nivel de picante y una explicación breve de por qué esa combinación funciona.
+y devuelve un taco con:
 
-## Objetivos de aprendizaje
+- descripción final
+- nivel total de picante
+- estado de intensidad: suave, medio, picante o extremo
 
-- Comprender el rol del desarrollador como arquitecto de intención.
-- Aplicar patrones no bloqueantes con JavaScript avanzado.
-- Usar promesas, async/await y funciones reutilizables.
-- Migrar un proyecto simple de JavaScript a TypeScript.
-- Definir tipos, interfaces y uniones literales para modelar el dominio.
+## Objetivo del proyecto
+
+Diseñar un mini-programa que demuestre cómo un conjunto de ingredientes puede producir una respuesta no bloqueante y comprensible. En la versión JavaScript, la lógica se construye con módulos, funciones y un flujo `async/await` simulado. La siguiente etapa será migrarlo a TypeScript para mejorar la seguridad y documentación del código.
 
 ## Criterios de aceptación
 
-1. El programa debe poder generar combinaciones de tacos a partir de una lista de ingredientes y un nivel de intensidad.
-2. La lógica debe implementarse primero en JavaScript avanzado usando conceptos como funciones de orden superior, destructuring, async/await o manejo de errores.
-3. La versión final debe estar migrada a TypeScript con tipos explícitos y una compilación válida con `tsconfig.json`.
+1. El programa debe crear combinaciones de tacos con datos reales y reutilizables.
+2. El nivel de picante debe acumularse a partir de los valores de cada ingrediente seleccionado.
+3. La clasificación del pico de picante debe depender del total final y no de una única condición.
+4. La lógica debe ejecutarse con JavaScript avanzado y un flujo asíncrono.
+5. El proyecto debe dejar evidencia de trabajo con Git y GitHub en la rama `feature/proyecto-1`.
 
-## Estructura inicial del proyecto
+## Estructura del proyecto
 
 ```text
-project/
+Entregabe1-IsmaelZambrano/
 ├── README.md
-├── src/
-│   ├── js/
-│   │   ├── data.js
-│   │   ├── generator.js
-│   │   └── index.js
-│   └── ts/
-│       ├── data.ts
-│       ├── generator.ts
-│       └── index.ts
+├── package.json
 ├── tsconfig.json
-└── package.json
+├── src/
+│   └── js/
+│       ├── data.js
+│       ├── generator.js
+│       └── index.js
+├── dist/
+├── .gitignore
+└── .git/
 ```
 
-## Requisitos del entregable
+## Lógica actual de la versión JavaScript
 
-- Repositorio en GitHub con rama de trabajo visible.
-- Versión inicial en JavaScript.
-- Versión migrada en TypeScript.
-- Uso de al menos 3 conceptos de JavaScript avanzado.
-- Configuración mínima de TypeScript.
-- Al menos 3 tipos personalizados entre `type` e `interface`.
-- Al menos 1 unión literal para estados o categorías.
-- README con intención, criterios de aceptación y comandos de ejecución.
+La base de datos contiene objetos con estos datos:
 
-## Flujo de trabajo esperado
+- `nombre`
+- `picante`
 
-1. Crear el repositorio en GitHub.
-2. Conectar el repositorio local con la rama `feature/proyecto-1`.
-3. Desarrollar la versión JavaScript.
-4. Migrar a TypeScript.
-5. Validar la compilación y documentar los errores detectados por TypeScript.
-6. Hacer push y dejar evidencia del flujo de GitHub.
+La función principal calcula el total acumulado del taco y luego clasifica el resultado según el nivel final:
 
-## Comandos de inicio
+- suave: 0 a 2
+- medio: 3 a 5
+- picante: 6 a 8
+- extremo: 9 o más
 
-Se usarán más adelante para ejecutar la aplicación:
+También se usa una función asíncrona con `setTimeout` para simular trabajo no bloqueante y aplicar `async/await` antes de devolver el resultado final.
+
+## Requisitos de la entrega
+
+- Repo GitHub con rama de trabajo `feature/proyecto-1`
+- Versión JavaScript funcional
+- Uso de módulos ES (`import` / `export`)
+- Uso de `async/await` y flujo no bloqueante
+- Cálculo acumulativo de picante
+- README con intención, estructura y comandos de ejecución
+- Preparación para migración a TypeScript
+
+## Comandos de ejecución
 
 ```bash
-# JavaScript
-node src/js/index.js
-
-# TypeScript
-npx tsc --project tsconfig.json
-node dist/index.js
+# Ejecutar la versión JavaScript
+npm start
 ```
 
-## Aprendizajes esperados
+## Evidencia de GitHub Flow
 
-- Reconocer que un programa no solo ejecuta lógica, también expresa intención.
-- Aprender a diferenciar entre datos, validación y salida del programa.
-- Entender cómo TypeScript mejora la mantenibilidad y la claridad del código.
-- Trabajar con Git/GitHub de forma profesional siguiendo la estrategia de ramas.
+El repositorio se está trabajando en la rama:
+
+```bash
+feature/proyecto-1
+```
+
+y se ha hecho push al remoto con evidencia de flujo de trabajo profesional.
+
+## Aprendizajes actuales
+
+- Aprender a modelar un problema con datos simples y reglas claras.
+- Entender la diferencia entre datos, cálculo y clasificación del resultado.
+- Trabajar con JavaScript avanzado sin bloquear la ejecución del programa.
+- Preparar la estructura base para migrar después a TypeScript.
 
 ## Estado actual
 
-Este README se está definiendo como base del proyecto con la intención creativa, la arquitectura inicial y los criterios de aceptación del entregable.
+La versión JavaScript del proyecto ya está construida y ejecuta la lógica central del generador de tacos, con cálculo acumulativo de picante, clasificación por intensidad y flujo asíncrono con `async/await`.
+
+La siguiente etapa será migrar esa lógica a TypeScript con tipos explícitos, interfaces, uniones literales y validación de compilación.
 
