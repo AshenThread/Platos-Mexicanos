@@ -43,3 +43,7 @@ export async function construirTacoAsync({ proteina, salsa, topping, tortilla })
     }, 500);
   });
 }
+
+export function filtrarIngredientesPorPicante(ingredientes, nivelPicante) {
+  return ingredientes.filter((ingrediente) => ingrediente.picante <= nivelPicante);
+}
