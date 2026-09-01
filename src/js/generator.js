@@ -1,3 +1,10 @@
+export function determinarEstado(nivelPicante) {
+  if (nivelPicante <= 2) return "suave";
+  if (nivelPicante <= 5) return "medio";
+  if (nivelPicante <= 8) return "picante";
+  return "extremo";
+}
+
 export function ensamblarTaco(proteina, salsa, topping, tortilla) {
   const nivelTotal = proteina.picante + salsa.picante + topping.picante + tortilla.picante;
   const estado = determinarEstado(nivelTotal);
@@ -14,21 +21,7 @@ export function ensamblarTaco(proteina, salsa, topping, tortilla) {
 }
 
 export function calcularPicante(taco) {
-  const valores = [
-    taco.proteina.picante,
-    taco.salsa.picante,
-    taco.topping.picante,
-    taco.tortilla.picante
-  ];
-
-  return valores.reduce((total, valor) => total + valor, 0);
-}
-
-export function determinarEstado(nivelPicante) {
-    if (nivelPicante <= 2) return "suave";
-    if (nivelPicante <= 5) return "medio";
-    if (nivelPicante <= 8) return "picante";
-    return "muy picante";
+  return taco.nivelTotal;
 }
 
 export async function construirTacoAsync({ proteina, salsa, topping, tortilla }) {
@@ -44,6 +37,6 @@ export async function construirTacoAsync({ proteina, salsa, topping, tortilla })
   });
 }
 
-export function filtrarIngredientesPorPicante(ingredientes, nivelPicante) {
-  return ingredientes.filter((ingrediente) => ingrediente.picante <= nivelPicante);
+export function filtrarIngredientesPorPicante(ingredientes, nivelMaximo) {
+  return ingredientes.filter((ingrediente) => ingrediente.picante <= nivelMaximo);
 }
