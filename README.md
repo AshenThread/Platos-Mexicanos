@@ -2,15 +2,15 @@
 
 ## Intención inicial
 
-Este proyecto crea una pequeña herramienta llamada "Máquina de tacos con intención". Su función es combinar proteínas, salsas, toppings y tortillas para generar un taco con un nivel de picante acumulado y una clasificación final según ese valor.
+Este proyecto consiste en una pequeña herramienta creativa llamada "Máquina de tacos con intención". Su objetivo es combinar proteína, salsa, topping y tortilla para generar un taco con un nivel de picante acumulado y una clasificación final según la cantidad total.
 
-La intención del programa es mostrar cómo una idea creativa puede convertirse en una lógica estructurada: se definen datos, se calculan resultados y se interpreta la salida con reglas claras. La lógica principal usa JavaScript avanzado para representar colecciones, funciones reutilizables y un flujo asíncrono simulado.
+La intención principal es demostrar cómo un problema visual y lúdico puede resolverse con lógica estructurada: datos, cálculo, clasificación y flujo no bloqueante. La versión JavaScript funciona como base del software y la versión TypeScript será una migración con tipos explícitos y validación de compilación.
 
 ## Tema creativo
 
-"Generador de tacos según intensidad y personalidad"
+"Generador de tacos por intensidad"
 
-El sistema toma datos como:
+La aplicación toma elementos como:
 
 - proteína
 - salsa
@@ -19,21 +19,24 @@ El sistema toma datos como:
 
 y devuelve un taco con:
 
-- descripción final
+- descripción del resultado
 - nivel total de picante
-- estado de intensidad: suave, medio, picante o extremo
+- estado final (suave, medio, picante o extremo)
 
-## Objetivo del proyecto
+## Objetivos de aprendizaje
 
-Diseñar un mini-programa que demuestre cómo un conjunto de ingredientes puede producir una respuesta no bloqueante y comprensible. En la versión JavaScript, la lógica se construye con módulos, funciones y un flujo `async/await` simulado. La siguiente etapa será migrarlo a TypeScript para mejorar la seguridad y documentación del código.
+- Aplicar JavaScript avanzado con módulos, funciones reutilizables y `async/await`.
+- Comprender el rol del desarrollador como arquitecto de intención y coordinador del flujo.
+- Migrar una solución simple de JavaScript a TypeScript con tipos, interfaces y uniones literales.
+- Documentar y entender los errores que detecta TypeScript.
 
 ## Criterios de aceptación
 
-1. El programa debe crear combinaciones de tacos con datos reales y reutilizables.
-2. El nivel de picante debe acumularse a partir de los valores de cada ingrediente seleccionado.
-3. La clasificación del pico de picante debe depender del total final y no de una única condición.
-4. La lógica debe ejecutarse con JavaScript avanzado y un flujo asíncrono.
-5. El proyecto debe dejar evidencia de trabajo con Git y GitHub en la rama `feature/proyecto-1`.
+1. El programa debe generar tacos con ingredientes reales y diferenciados.
+2. El picante debe calcularse acumulando el valor de cada elemento.
+3. El estado del taco debe depender del total final y no de una única condición.
+4. La lógica debe ejecutarse con JavaScript no bloqueante usando `async/await`.
+5. La versión final debe migrarse a TypeScript con tipos y compilación válida.
 
 ## Estructura del proyecto
 
@@ -43,68 +46,82 @@ Entregabe1-IsmaelZambrano/
 ├── package.json
 ├── tsconfig.json
 ├── src/
-│   └── js/
-│       ├── data.js
-│       ├── generator.js
-│       └── index.js
+│   ├── js/
+│   │   ├── data.js
+│   │   ├── generator.js
+│   │   └── index.js
+│   └── ts/
+│       ├── data.ts
+│       ├── generator.ts
+│       └── index.ts
 ├── dist/
 ├── .gitignore
 └── .git/
 ```
 
-## Lógica actual de la versión JavaScript
+## Lógica del proyecto
 
-La base de datos contiene objetos con estos datos:
+Los datos se representan como objetos con este formato:
 
-- `nombre`
-- `picante`
+```js
+{ nombre: "chipotle", picante: 5 }
+```
 
-La función principal calcula el total acumulado del taco y luego clasifica el resultado según el nivel final:
+La lógica principal hace lo siguiente:
+
+1. toma una proteína, una salsa, un topping y una tortilla
+2. suma todos los valores de picante
+3. determina el estado final
+4. devuelve un objeto final con descripción y nivel total
+5. simula un proceso asíncrono con `setTimeout` para aplicar `async/await`
+
+## Estados de picante
 
 - suave: 0 a 2
 - medio: 3 a 5
 - picante: 6 a 8
 - extremo: 9 o más
 
-También se usa una función asíncrona con `setTimeout` para simular trabajo no bloqueante y aplicar `async/await` antes de devolver el resultado final.
+## Requisitos del entregable
 
-## Requisitos de la entrega
-
-- Repo GitHub con rama de trabajo `feature/proyecto-1`
-- Versión JavaScript funcional
-- Uso de módulos ES (`import` / `export`)
-- Uso de `async/await` y flujo no bloqueante
-- Cálculo acumulativo de picante
-- README con intención, estructura y comandos de ejecución
-- Preparación para migración a TypeScript
+- repositorio en GitHub con rama `feature/proyecto-1`
+- versión JavaScript funcional
+- versión TypeScript migrada con tipos
+- uniones literales y funciones tipadas
+- `tsconfig.json` con compilación válida
+- README con intención, decisiones y comandos de ejecución
 
 ## Comandos de ejecución
 
 ```bash
-# Ejecutar la versión JavaScript
+# Versión JavaScript
 npm start
+
+# Compilar la versión TypeScript
+npm run build
+
+# Ejecutar la versión compilada
+node dist/index.js
 ```
 
 ## Evidencia de GitHub Flow
 
-El repositorio se está trabajando en la rama:
+La rama activa del proyecto es:
 
 ```bash
 feature/proyecto-1
 ```
 
-y se ha hecho push al remoto con evidencia de flujo de trabajo profesional.
+Se ha trabajado en esta rama y se ha realizado push al repositorio remoto para dejar evidencia del flujo de GitHub.
 
-## Aprendizajes actuales
+## Aprendizajes obtenidos
 
-- Aprender a modelar un problema con datos simples y reglas claras.
-- Entender la diferencia entre datos, cálculo y clasificación del resultado.
-- Trabajar con JavaScript avanzado sin bloquear la ejecución del programa.
-- Preparar la estructura base para migrar después a TypeScript.
+- aprender a separar datos, lógica y salida del programa
+- entender cómo el picante se acumula y cómo se interpreta el resultado
+- aplicar `async/await` y `Promise` para simular tareas no bloqueantes
+- preparar la ruta de migración hacia TypeScript con tipos y validación
 
 ## Estado actual
 
-La versión JavaScript del proyecto ya está construida y ejecuta la lógica central del generador de tacos, con cálculo acumulativo de picante, clasificación por intensidad y flujo asíncrono con `async/await`.
-
-La siguiente etapa será migrar esa lógica a TypeScript con tipos explícitos, interfaces, uniones literales y validación de compilación.
+La versión JavaScript ya está funcional y demuestra la lógica principal del proyecto. El siguiente paso es la migración a TypeScript con tipos explícitos, interfaces y una compilación correcta para dejar el proyecto listo para entregar.
 
